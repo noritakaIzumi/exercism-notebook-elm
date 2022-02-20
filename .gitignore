@@ -1,0 +1,7 @@
+# Editor config directory
+/.idea
+
+# Exercism files
+/*/.exercism
+/*/elm-stuff
+/*/*.md
