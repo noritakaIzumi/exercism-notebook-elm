@@ -1,7 +1,6 @@
 module TracksOnTracksOnTracks exposing (..)
 
-import Array exposing (fromList, get)
-import List exposing (length, reverse)
+import List
 
 
 newList : List String
@@ -21,24 +20,25 @@ addLanguage language languages =
 
 countLanguages : List String -> Int
 countLanguages languages =
-    length languages
+    List.length languages
 
 
 reverseList : List String -> List String
 reverseList languages =
-    reverse languages
+    List.reverse languages
 
 
 excitingList : List String -> Bool
 excitingList languages =
-    if length languages == 0 then
-        False
+    case languages of
+        "Elm" :: _ ->
+            True
 
-    else if get 0 (fromList languages) == Just "Elm" then
-        True
+        [ _, "Elm" ] ->
+            True
 
-    else if get 1 (fromList languages) == Just "Elm" && length languages <= 3 then
-        True
+        [ _, "Elm", _ ] ->
+            True
 
-    else
-        False
+        _ ->
+            False
